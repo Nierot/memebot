@@ -1,7 +1,9 @@
 import requests
-
-url = 'https://www.reddit.com/r/GoCommitDie.json?&limit=100'
-PATH = "C:/Users/Niels/Desktop/reddit/memebot/meme/static/meme/"
+import os
+subreddit  = "HistoryMemes"
+url = 'https://www.reddit.com/r/' + subreddit + '.json?&limit=100'
+PATH = os.path.join(os.path.dirname(__file__),"memebot/static/" + subreddit + "/")
+print(PATH)
 response = requests.get(url, headers={'User-agent': 'nierot 0.1'})
 
 if not response.ok:

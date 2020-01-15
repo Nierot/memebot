@@ -54,7 +54,7 @@ ROOT_URLCONF = 'memebot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Niels/Desktop/reddit/memebot/meme/templates/meme'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
