@@ -1,8 +1,8 @@
 import os
 import random
 
-shittyPATH = "/home/nierot/dev/memebot/static"
-PATH = os.path.join(os.path.dirname(__file__),"static")
+shittyPATH = "/home/nierot/dev/memebot/memes"
+PATH = os.path.join(os.path.dirname(__file__),"memes")
 
 files = []
 
