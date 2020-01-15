@@ -1,1 +1,4 @@
 requests
+django
+django-heroku
+gunicorn
