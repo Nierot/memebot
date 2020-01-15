@@ -25,7 +25,7 @@ SECRET_KEY = '50xj0bwc6o74u=zm-(_a@1zf269enj5h(^*@&r6_2t6(a1!gx%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','nierot-memebot.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0','nierot-memebot.herokuapp.com','127.0.0.1']
 
 
 # Application definition
