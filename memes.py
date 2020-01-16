@@ -1,9 +1,11 @@
 import requests
 import os
-subreddit  = "HistoryMemes"
+import pycurl
+import re
+
+subreddit  = "me_irl"
 url = 'https://www.reddit.com/r/' + subreddit + '.json?&limit=100'
-PATH = os.path.join(os.path.dirname(__file__),"memebot/static/" + subreddit + "/")
-print(PATH)
+PATH = os.path.join(os.path.dirname(__file__),"meme/memes/" + subreddit + "/")
 response = requests.get(url, headers={'User-agent': 'nierot 0.1'})
 
 if not response.ok:
@@ -19,25 +21,28 @@ def method(i):
 
         print("Currently trying to download: " + imageUrl)
 
-        if '.png' in imageUrl:            
-            extension = '.png'        
-        elif '.jpg' in imageUrl or '.jpeg' in imageUrl:            
-            extension = '.jpeg'
+        image = requests.get(imageUrl, allow_redirects=False)
+
+        if '.png' or '.jpg' or '.jpeg' in imageUrl:
+            imageoof = True
+            imageUrl = re.sub('https://i.redd.it/', '', imageUrl)       
         elif 'imgur' in imageUrl:
-            imageUrl += '.jpeg'
-            extension = '.jpeg'
+            imageoof = True
+            imageUrl = re.sub('https://i.imgur.com/', '', imageUrl)   
+        elif 'comment' in imageUrl:
+            print('oof')
+            imageoof = False
         else:
+            imageoof = False
             print("Not an image")
             i += 1
             continue
 
-        image = requests.get(imageUrl, allow_redirects=False)
-
-        if (image.status_code == 200):
-            print("Saving image to: " + PATH + str(i) + extension)
-            open(PATH + str(i) + extension, 'wb').write(image.content)
+        print(image)
+        if (image.status_code == 200 and imageoof):
+            print("Saving image to: " + PATH + imageUrl)
+            open(PATH + imageUrl, 'wb').write(image.content)
             i += 1
-        print()
 
 
 method(i)

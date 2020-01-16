@@ -1,18 +1,17 @@
 import os
 import random
+import ntpath
 
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from meme.images import randomImage, randomImgbb
+from meme.images import randomImage, download
 
 def memeView(request):
-    meme = randomImgbb()
-    print(meme)
-    context = {'meme':meme}
+    meme = randomImage()
+    context = {'meme': meme}
     return render(request,'meme/index.html',context=context)
-    
-    
-    #image_data = open(randomImage("o"), "rb").read()
-    #print(randomImage('d'))
-    #return HttpResponse(image_data, content_type="image/jpeg")
+
+def downloadView(request):
+    #download("animemes")
+    return HttpResponse("oof")
