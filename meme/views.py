@@ -13,5 +13,5 @@ def memeView(request):
     return render(request,'meme/index.html',context=context)
 
 def downloadView(request):
-    #download("animemes")
+    download("me_irl")
     return HttpResponse("oof")
